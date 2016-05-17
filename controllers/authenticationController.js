@@ -19,7 +19,7 @@ exports.signin = function(req, res, next){
     // `req.user` contains the authenticated user
 
     //  respond to request indicating the account was created
-    res.json({token: tokenForAccount(req.user)})
+    res.json({token: tokenForAccount(req.user), email: req.user.email})
 
 }
 
@@ -59,7 +59,7 @@ exports.signup = function(req, res, next){
             if(err){ return next(err) }
 
             //  respond to request indicating the newAccount was created
-            res.json({ token: tokenForAccount(newAccount) })
+            res.json({ token: tokenForAccount(newAccount), email: req.user.email })
         });
 
 
