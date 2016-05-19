@@ -59,7 +59,7 @@ exports.signup = function(req, res, next){
             if(err){ return next(err) }
 
             //  respond to request indicating the newAccount was created
-            res.json({ token: tokenForAccount(newAccount), email: req.user.email })
+            res.json({ token: tokenForAccount(newAccount), email: req.body.email })
         });
 
 
